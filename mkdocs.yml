@@ -1,0 +1,131 @@
+site_name: Burak Rüstemoğulları
+site_description: Wi-Fi Sensing ve teknik notlar
+site_author: Burak Rüstemoğulları
+site_url: https://burakrustemogullari.github.io/
+repo_url: https://github.com/BurakRustemogullari/BurakRustemogullari.github.io
+repo_name: Kaynak kodu
+
+theme:
+  name: material
+  language: tr
+  custom_dir: overrides
+  logo: assets/logo.png
+  favicon: assets/favicon.png
+  font:
+    text: Inter
+    code: JetBrains Mono
+  palette:
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Açık temaya geç
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Koyu temaya geç
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.indexes
+    - navigation.footer
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - toc.follow
+
+nav:
+  - Ana Sayfa: index.md
+  - Wi-Fi Sensing:
+    - wifi-sensing/index.md
+    - "0 · Kurulum": wifi-sensing/baslangic/kurulum.md
+    - A · Temeller:
+      - wifi-sensing/temeller/index.md
+      - "1 · Matematik araç kutusu": wifi-sensing/temeller/matematik.md
+      - "2 · Dalga, faz ve yol kaybı": wifi-sensing/temeller/dalga.md
+      - "3 · Çok yollu kanal": wifi-sensing/temeller/cok-yollu-kanal.md
+      - "4 · OFDM ve CSI": wifi-sensing/temeller/ofdm-csi.md
+      - "5 · Doppler ve Fresnel": wifi-sensing/temeller/doppler-fresnel.md
+      - "6 · ToF, AoA ve MIMO": wifi-sensing/temeller/tof-aoa-mimo.md
+    - B · Gerçek Veri:
+      - wifi-sensing/veri/index.md
+      - "7 · Donanım ve formatlar": wifi-sensing/veri/donanim-formatlar.md
+      - "8 · Kayıt kalitesi": wifi-sensing/veri/kayit-kalitesi.md
+      - "9 · Temizleme": wifi-sensing/veri/temizleme.md
+      - "10 · Öznitelik ve karar": wifi-sensing/veri/oznitelik-karar.md
+    - C · Yöntemler:
+      - wifi-sensing/yontemler/index.md
+      - "11 · Hareket": wifi-sensing/yontemler/hareket.md
+      - "12 · Varlık": wifi-sensing/yontemler/varlik.md
+      - "13 · Konumlama": wifi-sensing/yontemler/konumlama.md
+      - "14 · Aktivite": wifi-sensing/yontemler/aktivite.md
+      - "15 · Solunum": wifi-sensing/yontemler/solunum.md
+      - "16 · Jest ve yürüyüş": wifi-sensing/yontemler/jest-yuruyus.md
+      - "17 · Düşme": wifi-sensing/yontemler/dusme.md
+      - "18 · Çoklu kişi": wifi-sensing/yontemler/coklu-kisi.md
+      - "19 · Genelleme": wifi-sensing/yontemler/genelleme.md
+    - D · Standart ve Sistem:
+      - wifi-sensing/sistem/index.md
+      - "20 · IEEE 802.11bf": wifi-sensing/sistem/80211bf.md
+      - "21 · Canlı sistem": wifi-sensing/sistem/canli-sistem.md
+    - Ekler:
+      - Makaleler: wifi-sensing/ekler/makaleler.md
+      - Veri kümeleri: wifi-sensing/ekler/veri-kumeleri.md
+      - Sözlük: wifi-sensing/ekler/sozluk.md
+
+plugins:
+  - search:
+      lang:
+        - tr
+        - en
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/BurakRustemogullari
+      name: GitHub
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/burakrustemogullari
+      name: LinkedIn
+    - icon: fontawesome/solid/envelope
+      link: mailto:rustemogullarib@gmail.com
+      name: E-posta
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js

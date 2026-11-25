@@ -1,0 +1,518 @@
+/* ==========================================================================
+   Marka renkleri — logo.png'den örneklendi
+   ========================================================================== */
+
+:root {
+  --br-navy: #14232e;
+  --br-navy-mid: #1c3040;
+  --br-navy-deep: #0d1820;
+  --br-teal: #04bcaf;
+  --br-teal-ink: #067a72; /* açık zeminde okunabilir teal (AA) */
+  --band-radius: 0.6rem;
+}
+
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: var(--br-navy);
+  --md-primary-fg-color--light: var(--br-navy-mid);
+  --md-primary-fg-color--dark: var(--br-navy-deep);
+  --md-primary-bg-color: #ffffff;
+  --md-primary-bg-color--light: rgba(255, 255, 255, 0.7);
+  --md-accent-fg-color: var(--br-teal-ink);
+  --md-accent-fg-color--transparent: rgba(4, 188, 175, 0.1);
+  --md-typeset-a-color: var(--br-teal-ink);
+
+  /* Hero açık temada beyaz tonlarına geçer */
+  --hero-bg: #f6fafb;
+  --hero-grid: rgba(4, 188, 175, 0.1);
+  --hero-border: rgba(4, 188, 175, 0.28);
+  --hero-glow: rgba(4, 188, 175, 0.16);
+  --hero-title: var(--br-navy);
+  --hero-body: rgba(20, 35, 46, 0.76);
+  --hero-accent: var(--br-teal-ink);
+  --hero-chip-bg: #ffffff;
+  --hero-chip-border: rgba(20, 35, 46, 0.14);
+  --hero-chip-text: rgba(20, 35, 46, 0.78);
+  --hero-btn-border: rgba(20, 35, 46, 0.24);
+  --hero-btn-text: var(--br-navy);
+  --hero-portrait-border: rgba(4, 188, 175, 0.5);
+  --hero-portrait-shadow: rgba(20, 35, 46, 0.14);
+}
+
+[data-md-color-scheme="slate"] {
+  --md-hue: 205;
+  --md-primary-fg-color: var(--br-navy);
+  --md-primary-fg-color--light: var(--br-navy-mid);
+  --md-primary-fg-color--dark: var(--br-navy-deep);
+  --md-primary-bg-color: #e6edf3;
+  --md-primary-bg-color--light: rgba(230, 237, 243, 0.7);
+  --md-accent-fg-color: var(--br-teal);
+  --md-accent-fg-color--transparent: rgba(4, 188, 175, 0.1);
+  --md-typeset-a-color: var(--br-teal);
+
+  /* Hero koyu temada lacivert kalır */
+  --hero-bg: var(--br-navy);
+  --hero-grid: rgba(4, 188, 175, 0.07);
+  --hero-border: rgba(4, 188, 175, 0.25);
+  --hero-glow: rgba(4, 188, 175, 0.18);
+  --hero-title: #ffffff;
+  --hero-body: rgba(230, 237, 243, 0.78);
+  --hero-accent: var(--br-teal);
+  --hero-chip-bg: rgba(230, 237, 243, 0.06);
+  --hero-chip-border: rgba(230, 237, 243, 0.18);
+  --hero-chip-text: rgba(230, 237, 243, 0.85);
+  --hero-btn-border: rgba(230, 237, 243, 0.35);
+  --hero-btn-text: #e6edf3;
+  --hero-portrait-border: rgba(4, 188, 175, 0.45);
+  --hero-portrait-shadow: rgba(0, 0, 0, 0.35);
+}
+
+/* Üst bar her iki temada da lacivert kalsın — logo zeminine oturur */
+.md-header,
+.md-tabs {
+  background-color: var(--br-navy);
+}
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+
+.md-typeset .hero {
+  position: relative;
+  overflow: hidden;
+  margin: 0 0 2.5rem;
+  padding: 2.8rem 2.4rem;
+  border-radius: var(--band-radius);
+  border: 1px solid var(--hero-border);
+  color: var(--hero-body);
+  background-color: var(--hero-bg);
+  /* teknik çizim hissi veren ince ızgara */
+  background-image: linear-gradient(var(--hero-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--hero-grid) 1px, transparent 1px);
+  background-size: 2rem 2rem, 2rem 2rem;
+}
+
+/* Sağ üstten gelen yumuşak teal ışık */
+.md-typeset .hero::after {
+  content: "";
+  position: absolute;
+  top: -40%;
+  right: -15%;
+  width: 28rem;
+  height: 28rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--hero-glow), transparent 65%);
+  pointer-events: none;
+}
+
+.md-typeset .hero-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 2.4rem;
+}
+
+.md-typeset .hero-text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* Markdown, görseli <p> içine sarıyor — hizalama o sarmalayıcıya uygulanmalı */
+.md-typeset .hero-inner > p {
+  flex: 0 0 auto;
+  margin: 0;
+  line-height: 0;
+}
+
+.md-typeset .hero-eyebrow {
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  padding: 0.15rem 0.5rem;
+  border: 1px solid var(--hero-border);
+  border-radius: 0.2rem;
+  font-family: var(--md-code-font-family);
+  font-size: 0.62rem;
+  letter-spacing: 0.02em;
+  color: var(--hero-accent);
+  background: rgba(4, 188, 175, 0.08);
+}
+
+.md-typeset .hero h1 {
+  margin: 0 0 0.5rem;
+  color: var(--hero-title);
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+
+.md-typeset .hero-role {
+  margin: 0 0 1rem;
+  color: var(--hero-accent);
+  font-family: var(--md-code-font-family);
+  font-size: 0.7rem;
+}
+
+.md-typeset .hero-text > p {
+  margin: 0 0 1.2rem;
+  max-width: 30rem;
+  color: var(--hero-body);
+  font-size: 0.76rem;
+  line-height: 1.65;
+}
+
+/* Teknoloji rozetleri — hero içindeki satır içi kodlar */
+.md-typeset .hero-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 1.4rem;
+}
+
+.md-typeset .hero-stack code {
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--hero-chip-border);
+  border-radius: 0.2rem;
+  font-size: 0.62rem;
+  color: var(--hero-chip-text);
+  background: var(--hero-chip-bg);
+  box-shadow: none;
+}
+
+.md-typeset .hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.md-typeset .hero .md-button {
+  border-color: var(--hero-btn-border);
+  color: var(--hero-btn-text);
+  font-size: 0.7rem;
+}
+
+.md-typeset .hero .md-button:hover {
+  border-color: var(--br-teal);
+  background: rgba(4, 188, 175, 0.12);
+  color: var(--hero-title);
+}
+
+.md-typeset .hero .md-button--primary {
+  background: var(--br-teal);
+  border-color: var(--br-teal);
+  color: var(--br-navy-deep);
+  font-weight: 600;
+}
+
+.md-typeset .hero .md-button--primary:hover {
+  background: #05d3c4;
+  border-color: #05d3c4;
+  color: var(--br-navy-deep);
+}
+
+/* Vesikalık: kimlik kartı hissi veren yuvarlatılmış kare */
+.md-typeset .hero-portrait {
+  flex: 0 0 auto;
+  width: 8.4rem;
+  height: 10rem;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 0.5rem;
+  border: 1px solid var(--hero-portrait-border);
+  box-shadow: 0 0.6rem 1.6rem var(--hero-portrait-shadow);
+}
+
+@media screen and (max-width: 44.9375em) {
+  .md-typeset .hero {
+    padding: 2rem 1.4rem;
+  }
+
+  .md-typeset .hero-inner {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 1.4rem;
+  }
+
+  .md-typeset .hero h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/* ==========================================================================
+   Bölüm başlıkları ve kartlar
+   ========================================================================== */
+
+/* Ana sayfa bölüm başlıkları: mono, ince, sağa doğru uzanan ayraç çizgisiyle */
+.md-typeset .home-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-family: var(--md-code-font-family);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--md-default-fg-color--light);
+}
+
+.md-typeset .home-heading::after {
+  content: "";
+  flex: 1 1 auto;
+  height: 1px;
+  background: var(--md-default-fg-color--lightest);
+}
+
+.md-typeset .grid.cards > ul > li {
+  border-color: var(--md-default-fg-color--lightest);
+  border-radius: var(--band-radius);
+  transition: border-color 125ms, transform 125ms, box-shadow 125ms;
+}
+
+.md-typeset .grid.cards > ul > li:hover {
+  border-color: var(--md-accent-fg-color);
+  transform: translateY(-2px);
+  box-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.12);
+}
+
+.md-typeset .grid.cards > ul > li > hr {
+  border-bottom-color: var(--md-accent-fg-color);
+  opacity: 0.35;
+}
+
+/* --- Yalnızca başlık taşıyan, tamamı tıklanabilir gezinme kutuları ------- */
+
+.md-typeset .nav-cards.cards > ul > li {
+  padding: 0;
+  overflow: hidden;
+}
+
+.md-typeset .nav-cards.cards > ul > li > p {
+  margin: 0;
+}
+
+/* Bağlantı kutuyu baştan sona doldurur — her nokta tıklanabilir */
+.md-typeset .nav-cards.cards > ul > li > p > a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  padding: 1.9rem 1rem;
+  color: var(--md-default-fg-color);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+
+.md-typeset .nav-cards.cards > ul > li > p > a:hover,
+.md-typeset .nav-cards.cards > ul > li > p > a:focus-visible {
+  color: var(--md-accent-fg-color);
+}
+
+.md-typeset .nav-cards.cards > ul > li .twemoji {
+  color: var(--md-accent-fg-color);
+}
+
+.md-typeset .nav-cards.cards > ul > li > p > a:focus-visible {
+  outline: 2px solid var(--md-accent-fg-color);
+  outline-offset: -2px;
+}
+
+/* ==========================================================================
+   Deneyim zaman çizelgesi
+   ========================================================================== */
+
+.md-typeset ol.timeline {
+  list-style: none;
+  margin: 1.2rem 0 0;
+  padding: 0;
+}
+
+/* Logo solda sabit sütun, üç metin satırı sağda — sarmalayıcı div gerekmez */
+.md-typeset ol.timeline > li.timeline__item {
+  display: grid;
+  grid-template-columns: 4rem minmax(0, 1fr);
+  column-gap: 0.9rem;
+  align-items: start;
+  margin: 0 0 1.5rem;
+  padding: 0;
+}
+
+.md-typeset ol.timeline > li.timeline__item > .timeline__logo {
+  grid-column: 1;
+  grid-row: 1 / span 3;
+}
+
+.md-typeset ol.timeline > li.timeline__item > p {
+  grid-column: 2;
+}
+
+.md-typeset ol.timeline > li.timeline__item:last-child {
+  margin-bottom: 0;
+}
+
+/* Logo hem marka görseli hem de zaman çizelgesinin çapası */
+.md-typeset .timeline__logo {
+  position: relative;
+  flex: 0 0 auto;
+  line-height: 0;
+}
+
+.md-typeset .timeline__logo img {
+  width: 4rem;
+  height: 2.6rem; /* kutu oranı 280x182 ile aynı */
+  object-fit: contain;
+  border-radius: 0.3rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  background: #ffffff;
+  transition: border-color 125ms, box-shadow 125ms;
+}
+
+.md-typeset .timeline__logo:hover img {
+  border-color: var(--md-accent-fg-color);
+}
+
+/* Logoları birbirine bağlayan dikey çizgi */
+.md-typeset ol.timeline > li.timeline__item:not(:last-child) .timeline__logo::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 2.9rem;
+  bottom: -1.2rem;
+  width: 2px;
+  margin-left: -1px;
+  background: var(--md-default-fg-color--lightest);
+}
+
+/* Devam eden görev vurgulanır */
+.md-typeset .timeline__item--current .timeline__logo img {
+  border-color: var(--md-accent-fg-color);
+  box-shadow: 0 0 0 0.15rem var(--md-accent-fg-color--transparent);
+}
+
+
+.md-typeset .timeline__period {
+  margin: 0 0 0.15rem;
+  font-family: var(--md-code-font-family);
+  font-size: 0.6rem;
+  color: var(--md-default-fg-color--light);
+}
+
+.md-typeset .timeline__role {
+  margin: 0;
+  font-size: 0.76rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--md-default-fg-color);
+}
+
+.md-typeset .timeline__org {
+  margin: 0.1rem 0 0;
+  font-size: 0.7rem;
+  color: var(--md-accent-fg-color);
+}
+
+.md-typeset .timeline__org a {
+  color: inherit;
+}
+
+.md-typeset .timeline__org a:hover {
+  text-decoration: underline;
+}
+
+.md-typeset .timeline__place {
+  color: var(--md-default-fg-color--light);
+}
+
+.md-typeset .timeline__tag {
+  margin-left: 0.3rem;
+  padding: 0.05rem 0.3rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 0.2rem;
+  font-family: var(--md-code-font-family);
+  font-size: 0.55rem;
+  font-weight: 400;
+  vertical-align: 0.08rem;
+  color: var(--md-default-fg-color--light);
+}
+
+/* --- Alternatif şerit --------------------------------------------------- */
+
+.md-typeset .band {
+  margin: 2.5rem 0;
+  padding: 1.8rem 1.6rem;
+  border-radius: var(--band-radius);
+  border-left: 3px solid var(--md-accent-fg-color);
+  background: var(--md-code-bg-color);
+}
+
+.md-typeset .band > :first-child {
+  margin-top: 0;
+}
+
+.md-typeset .band > :last-child {
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   Sol menüdeki profil kartı
+   ========================================================================== */
+
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 0.6rem 1rem;
+  margin-bottom: 0.4rem;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.profile-card__photo {
+  flex: 0 0 auto;
+  width: 2.4rem;
+  height: 2.4rem;
+  object-fit: cover;
+  border-radius: 0.3rem;
+}
+
+.profile-card__name {
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--md-default-fg-color);
+}
+
+.profile-card__role {
+  margin-top: 0.1rem;
+  font-family: var(--md-code-font-family);
+  font-size: 0.56rem;
+  color: var(--md-accent-fg-color);
+}
+
+/* ==========================================================================
+   Kaydırınca beliriş
+   Saf CSS. Desteklemeyen tarayıcıda hiçbir şey olmaz, içerik görünür kalır.
+   Hareket azaltma tercihi açıksa devre dışı.
+   ========================================================================== */
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .md-typeset .reveal {
+      animation: reveal-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+    }
+
+    @keyframes reveal-in {
+      from {
+        opacity: 0;
+        transform: translateY(1.5rem);
+      }
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  }
+}
